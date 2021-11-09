@@ -15,6 +15,11 @@ public class AddActivity extends AddView {
 
     private EditText authorNameEditText;
     private EditText authorBookEditText;
+    private EditText authorBindingEditText;
+    private EditText authorPriceEditText;
+    private EditText authorNumberOfPagesEditText;
+    private EditText authorYearOfPublishingEditText;
+    private EditText authorPublishingHouseEditText;
     private Button saveButton;
 
     private AddActivityPresenter presenter;
@@ -29,16 +34,32 @@ public class AddActivity extends AddView {
         if(author != null) {
             authorNameEditText.setText(author.getName());
             authorBookEditText.setText(author.getBook());
+            authorPublishingHouseEditText.setText(author.getPublishingHouse());
+            authorYearOfPublishingEditText.setText(String.format("%d", author.getYearOfPublishing()));
+            authorBindingEditText.setText(author.getBinding());
+            authorPriceEditText.setText(String.format("%f",author.getPrice()));
+            authorNumberOfPagesEditText.setText(String.format("%d", author.getNumberOfPages()));
         }
     }
 
     private void initViews() {
         authorNameEditText = findViewById(R.id.authorNameEditText);
         authorBookEditText = findViewById(R.id.authorBookEditText);
+        authorNumberOfPagesEditText = findViewById(R.id.authorNumberOfPagesEditText);
+        authorPriceEditText = findViewById(R.id.authorPriceEditText);
+        authorBindingEditText = findViewById(R.id.authorBindingEditText);
+        authorYearOfPublishingEditText = findViewById(R.id.authorYearOfPublishingEditText);
+        authorPublishingHouseEditText = findViewById(R.id.authorPublishingHouseEditText);
         saveButton = findViewById(R.id.saveButton);
     }
 
     public void onSave(View v) {
-        presenter.onSave(authorNameEditText.getText().toString(), authorBookEditText.getText().toString());
+        presenter.onSave(authorNameEditText.getText().toString(),
+                authorBookEditText.getText().toString(),
+                authorPublishingHouseEditText.getText().toString(),
+                Integer.parseInt(authorYearOfPublishingEditText.getText().toString()),
+                Integer.parseInt(authorNumberOfPagesEditText.getText().toString()),
+                Double.parseDouble(authorPriceEditText.getText().toString()),
+                authorBindingEditText.getText().toString());
     }
 }

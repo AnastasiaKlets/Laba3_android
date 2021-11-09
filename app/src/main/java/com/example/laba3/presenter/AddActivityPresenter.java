@@ -15,13 +15,18 @@ public class AddActivityPresenter {
         if(author != null) {
             this.author = author;
         } else {
-            this.author = new Author(0, "", "");
+            this.author = new Author(0, "", "","",1000,0,0.2,"");
         }
     }
 
-    public void onSave(String name, String book) {
+    public void onSave(String name, String book, String publishingHouse, int yearOfPublishing, int numberOfPages, double price, String binding) {
         author.setName(name);
         author.setBook(book);
+        author.setPublishingHouse(publishingHouse);
+        author.setYearOfPublishing(yearOfPublishing);
+        author.setNumberOfPages(numberOfPages);
+        author.setPrice(price);
+        author.setBinding(binding);
         repository.saveAuthor(author);
         view.onBackPressed();
     }

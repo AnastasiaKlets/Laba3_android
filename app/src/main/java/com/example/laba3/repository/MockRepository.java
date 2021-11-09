@@ -14,9 +14,9 @@ public class MockRepository implements AuthorRepository {
     }
 
     public MockRepository() {
-        authorList.add(new Author(1, "asdf", "asdfeqwr"));
-        authorList.add(new Author(2, "wqef", "asdfeqwr"));
-        authorList.add(new Author(3, "zxcv", "asdfeqwr"));
+        authorList.add(new Author(1, "asdf", "asdfeqwr","qwer",2005,235,2.2,"qwer"));
+        authorList.add(new Author(2, "wqef", "asdfeqwr","asdf",2012,562,2.2,"aseddf"));
+        authorList.add(new Author(3, "zxcv", "asdfeqwr","zxcv",2021,456,2.2,"xcvs"));
     }
 
     @Override
