@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -29,6 +30,12 @@ public class MainActivity extends MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+        // запускаем длительную операцию
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
+
         presenter = new MainActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
         initViews();
         presenter.init();
