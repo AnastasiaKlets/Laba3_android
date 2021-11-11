@@ -68,7 +68,7 @@ public class MainActivity extends MainView {
                                 presenter.onEditAuthor(index);
                                 break;
                             case 2:
-                                if(backFlag){
+                                if(!backFlag){
                                     findViewById(R.id.authorsListView).setBackgroundColor(Color.CYAN);
                                 }
                                 else
