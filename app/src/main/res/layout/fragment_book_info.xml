@@ -1,155 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="20dp"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.BookInfoFragment"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".fragments.BookInfoFragment"
 
     >
 
-    <TextView
-        android:id="@+id/autlabel"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="@string/authors_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintBottom_toTopOf="@id/bknmlabel"
-
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/authorView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/autlabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/bknmlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bookname_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/autlabel"
-        app:layout_constraintBottom_toTopOf="@id/publlabel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/bookNameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/bknmlabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/publlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/publisher_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/bknmlabel"
-        app:layout_constraintBottom_toTopOf="@id/pubylabel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/publisherView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/publlabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/pubylabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/publishyear_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/publlabel"
-        app:layout_constraintBottom_toTopOf="@id/pcntlabel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/publishYearView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/pubylabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/pcntlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pagecount_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pubylabel"
-        app:layout_constraintBottom_toTopOf="@id/prclabel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/pagesCountView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/pcntlabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/prclabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/price_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pcntlabel"
-        app:layout_constraintBottom_toTopOf="@id/bindlabel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/priceView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/prclabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
-
-    <TextView
-        android:id="@+id/bindlabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/binding_label"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintTop_toBottomOf="@id/prclabel"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/bindingTypeView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBaseline_toBaselineOf="@id/bindlabel"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/lorem_ipsum"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/autlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginVertical="10dp"
+            android:text="@string/authors_label"
+            android:textColor="#000000"
+
+            app:layout_constraintBottom_toTopOf="@id/bknmlabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/authorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/autlabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/bknmlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/bookname_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/publlabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/autlabel" />
+
+        <TextView
+            android:id="@+id/bookNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/bknmlabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/publlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/publisher_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/pubylabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bknmlabel" />
+
+        <TextView
+            android:id="@+id/publisherView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/publlabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/pubylabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/publishyear_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/pcntlabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/publlabel" />
+
+        <TextView
+            android:id="@+id/publishYearView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/pubylabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/pcntlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/pagecount_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/prclabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pubylabel" />
+
+        <TextView
+            android:id="@+id/pagesCountView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/pcntlabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/prclabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/price_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@id/bindlabel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pcntlabel" />
+
+        <TextView
+            android:id="@+id/priceView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/prclabel"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/bindlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="@string/binding_label"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/prclabel" />
+
+        <TextView
+            android:id="@+id/bindingTypeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            app:layout_constraintBaseline_toBaselineOf="@id/bindlabel"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
