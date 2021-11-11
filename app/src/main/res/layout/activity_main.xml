@@ -48,7 +48,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/fragmentView"
         android:visibility="gone"
-        android:layout_width="300dp"
+        android:layout_width="270dp"
+        android:outlineAmbientShadowColor="@color/black"
         android:layout_height="match_parent"/>
 
 

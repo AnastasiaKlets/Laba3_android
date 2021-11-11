@@ -105,7 +105,9 @@ public class MainActivity extends MainView {
         if(detailsFragment == null)
             super.onBackPressed();
         else{
-            getSupportFragmentManager().beginTransaction().remove(detailsFragment).commit();
+            getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                    .remove(detailsFragment).commit();
             findViewById(R.id.fragmentView).setVisibility(View.INVISIBLE);
             detailsFragment = null;
         }
