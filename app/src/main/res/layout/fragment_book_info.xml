@@ -5,8 +5,11 @@
     android:padding="20dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BookInfoFragment"
-    android:layout_gravity="center">
+    tools:context=".fragments.BookInfoFragment"
+    android:layout_gravity="center"
+    android:background="@color/white"
+
+    >
 
     <TextView
         android:id="@+id/autlabel"

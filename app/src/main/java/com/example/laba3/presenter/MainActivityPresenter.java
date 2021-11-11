@@ -45,5 +45,11 @@ public class MainActivityPresenter {
         onRefreshButtonClick();
     }
 
+    public void onDetails(int index){
+        Author author =  repository.getAuthorList().get(index);
+        view.showAuthorDetails(author);
+
+    }
+
 
 }

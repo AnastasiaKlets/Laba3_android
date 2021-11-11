@@ -1,14 +1,16 @@
 package com.example.laba3.activity;
 
+
+
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
+import com.example.laba3.fragments.BookInfoFragment;
 import com.example.laba3.R;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.MainActivityPresenter;
@@ -24,6 +26,7 @@ public class MainActivity extends MainView {
     private FloatingActionButton addAuthorButton;
     private ListView authorsListView;
     private ArrayAdapter<String> adapter;
+    private Fragment detailsFragment;
 
     MainActivityPresenter presenter;
 
@@ -32,14 +35,14 @@ public class MainActivity extends MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+       /* ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(ProgressBar.VISIBLE);
         // запускаем длительную операцию
+
+        progressBar.setVisibility(ProgressBar.INVISIBLE);*/
         presenter = new MainActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
         initViews();
         presenter.init();
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
-
 
     }
 
@@ -62,6 +65,9 @@ public class MainActivity extends MainView {
             builder.create().show();
             return false;
         });
+        authorsListView.setOnItemClickListener((parent, item, index, id) -> {
+            presenter.onDetails(index);
+        });
     }
 
     @Override
@@ -69,6 +75,21 @@ public class MainActivity extends MainView {
         final List<String> list = authorList.stream().map(Author::toString).collect(Collectors.toList());
         adapter.clear();
         adapter.addAll(list);
+    }
+
+    @Override
+    public void showAuthorDetails(Author author) {
+        if (detailsFragment != null) {
+            getSupportFragmentManager().beginTransaction().remove(detailsFragment).commit();
+        }
+        detailsFragment = BookInfoFragment.newInstance(author);
+        findViewById(R.id.fragmentView).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                .add(R.id.fragmentView, detailsFragment, "DETAILS_FRAGMENT")
+                .commit();
     }
 
     public void onAddButtonClick(View v) {
