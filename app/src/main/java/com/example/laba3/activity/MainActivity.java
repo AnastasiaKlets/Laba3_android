@@ -99,4 +99,15 @@ public class MainActivity extends MainView {
     public void onRefreshButtonClick(View v) {
         presenter.onRefreshButtonClick();
     }
+
+    @Override
+    public void onBackPressed() {
+        if(detailsFragment == null)
+            super.onBackPressed();
+        else{
+            getSupportFragmentManager().beginTransaction().remove(detailsFragment).commit();
+            findViewById(R.id.fragmentView).setVisibility(View.INVISIBLE);
+            detailsFragment = null;
+        }
+    }
 }
