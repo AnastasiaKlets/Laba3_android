@@ -18,9 +18,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/switch2"
         app:layout_constraintRight_toLeftOf="@id/switch2"
-        app:layout_constraintBottom_toTopOf="@id/scrlview"
-
-        />
+        app:layout_constraintBottom_toTopOf="@id/lv1">
+        <requestFocus/>
+    </SearchView>
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch2"
@@ -29,23 +29,26 @@
         app:layout_constraintLeft_toRightOf="@id/searchView"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/scrlview"
+        app:layout_constraintBottom_toTopOf="@id/lv1"
         app:layout_constraintBaseline_toBaselineOf="@id/searchView"
         android:text="@string/publisher_switch"
         />
-    <ScrollView
-        android:id="@+id/scrlview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrlview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/searchView"-->
 
-        >
-        <androidx.recyclerview.widget.RecyclerView
+<!--        >-->
+        <ListView
             android:id="@+id/lv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+
             />
-    </ScrollView>
+<!--    </ScrollView>-->
 
 
 

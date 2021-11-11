@@ -10,6 +10,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class FileRepository implements AuthorRepository{
 
@@ -75,6 +77,14 @@ public class FileRepository implements AuthorRepository{
 
     @Override
     public List<Author> executeSearchQuery(String query, String field) {
-        return null;
+        return getAuthorList().stream().filter(e->{
+            if(Objects.equals(field, "publishingHouse")){
+                return e.getPublishingHouse().contains(query);
+            }
+            if(Objects.equals(field, "name")){
+                return e.getName().contains(query);
+            }
+            return false;
+        }).collect(Collectors.toList());
     }
 }
