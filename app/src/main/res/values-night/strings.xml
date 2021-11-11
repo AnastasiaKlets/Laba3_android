@@ -7,4 +7,5 @@
     <string name="binding_label">Переплет</string>
     <string name="price_label">Цена</string>
     <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="publisher_switch">Издатель</string>
 </resources>

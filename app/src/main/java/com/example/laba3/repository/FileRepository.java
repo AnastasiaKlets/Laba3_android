@@ -60,7 +60,7 @@ public class FileRepository implements AuthorRepository{
             author.setId(findId(authorList));
             authorList.add(author);
         } else {
-            authorList.removeIf(x -> x.getId() == author.getId());
+            authorList.removeIf(x -> x.getId() ==  author.getId());
             authorList.add(author);
         }
         saveList(authorList);
@@ -71,5 +71,10 @@ public class FileRepository implements AuthorRepository{
         List<Author> authorList = getAuthorList();
         authorList.remove(index);
         saveList(authorList);
+    }
+
+    @Override
+    public List<Author> executeSearchQuery(String query, String field) {
+        return null;
     }
 }

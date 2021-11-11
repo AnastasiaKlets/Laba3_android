@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.laba3.activity.AddActivity;
+import com.example.laba3.activity.SearchActivity;
 import com.example.laba3.model.Author;
 import com.example.laba3.repository.AuthorRepository;
 import com.example.laba3.view.MainView;
@@ -48,7 +49,10 @@ public class MainActivityPresenter {
     public void onDetails(int index){
         Author author =  repository.getAuthorList().get(index);
         view.showAuthorDetails(author);
+    }
 
+    public void onSearchClick(){
+        view.startActivity(new Intent(view, SearchActivity.class));
     }
 
 

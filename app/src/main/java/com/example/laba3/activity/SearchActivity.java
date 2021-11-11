@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.laba3.R;
+import com.example.laba3.view.SearchView;
 
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends SearchView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

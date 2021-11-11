@@ -38,4 +38,9 @@ public class MockRepository implements AuthorRepository {
     public void deleteAuthor(int index) {
         authorList.remove(index);
     }
+
+    @Override
+    public List<Author> executeSearchQuery(String query, String field) {
+        return new ArrayList<>();
+    }
 }

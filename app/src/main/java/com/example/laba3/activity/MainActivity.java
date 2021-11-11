@@ -55,11 +55,16 @@ public class MainActivity extends MainView {
         authorsListView.setOnItemLongClickListener((parent, item, index, id) -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Выберите действие")
-                    .setItems(new String[]{"Удалить", "Редактировать"}, (v, action) -> {
-                        if(action == 0) {
-                            presenter.onDeleteAuthor(index);
-                        } else {
-                            presenter.onEditAuthor(index);
+                    .setItems(new String[]{"Удалить", "Редактировать", "Смена темы"}, (v, action) -> {
+                        switch (action) {
+                            case 0:
+                                presenter.onDeleteAuthor(index);
+                                break;
+                            case 1:
+                                presenter.onEditAuthor(index);
+                                break;
+                            case 2:
+                                break;
                         }
                     });
             builder.create().show();
@@ -111,5 +116,9 @@ public class MainActivity extends MainView {
             findViewById(R.id.fragmentView).setVisibility(View.INVISIBLE);
             detailsFragment = null;
         }
+    }
+
+    public void onSearchButtonClick(View view) {
+        presenter.onSearchClick();
     }
 }

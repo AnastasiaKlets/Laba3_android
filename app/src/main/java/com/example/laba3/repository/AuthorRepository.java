@@ -9,4 +9,5 @@ public interface AuthorRepository {
 
     void saveAuthor(Author author);
     void deleteAuthor(int index);
+    List<Author> executeSearchQuery(String query, String field);
 }
