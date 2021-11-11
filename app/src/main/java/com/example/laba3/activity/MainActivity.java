@@ -2,6 +2,7 @@ package com.example.laba3.activity;
 
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,8 +28,11 @@ public class MainActivity extends MainView {
     private ListView authorsListView;
     private ArrayAdapter<String> adapter;
     private Fragment detailsFragment;
+    private boolean backFlag;
 
     MainActivityPresenter presenter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,12 @@ public class MainActivity extends MainView {
                                 presenter.onEditAuthor(index);
                                 break;
                             case 2:
+                                if(backFlag){
+                                    findViewById(R.id.authorsListView).setBackgroundColor(Color.CYAN);
+                                }
+                                else
+                                    findViewById(R.id.authorsListView).setBackgroundColor(Color.WHITE);
+                                backFlag = !backFlag;
                                 break;
                         }
                     });
