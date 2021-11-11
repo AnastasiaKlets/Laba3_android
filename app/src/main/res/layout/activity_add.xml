@@ -120,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Автор(ы)"
+        android:text="@string/authors_label"
         app:layout_constraintBottom_toTopOf="@+id/authorNameEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Название книги"
+        android:text="@string/bookname_label"
         app:layout_constraintBottom_toTopOf="@+id/authorBookEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Издательство"
+        android:text="@string/publisher_label"
         app:layout_constraintBottom_toTopOf="@+id/authorPublishingHouseEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Год издания"
+        android:text="@string/publishyear_label"
         app:layout_constraintBottom_toTopOf="@+id/authorYearOfPublishingEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -160,7 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Количество страниц"
+        android:text="@string/pagecount_label"
         app:layout_constraintBottom_toTopOf="@+id/authorNumberOfPagesEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Переплет"
+        android:text="@string/binding_label"
         app:layout_constraintBottom_toTopOf="@+id/authorBindingEditText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -180,7 +180,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Цена"
+        android:text="@string/price_label"
         app:layout_constraintBottom_toTopOf="@+id/authorPriceEditText"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

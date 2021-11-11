@@ -44,4 +44,6 @@ public class MainActivityPresenter {
         repository.deleteAuthor(index);
         onRefreshButtonClick();
     }
+
+
 }

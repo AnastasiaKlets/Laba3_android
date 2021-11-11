@@ -1,6 +1,7 @@
 package com.example.laba3.activity;
 
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -34,11 +35,12 @@ public class MainActivity extends MainView {
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(ProgressBar.VISIBLE);
         // запускаем длительную операцию
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
-
         presenter = new MainActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
         initViews();
         presenter.init();
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
+
+
     }
 
     private void initViews() {
