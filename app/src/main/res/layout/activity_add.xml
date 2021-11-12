@@ -88,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/authorNameEditText" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/authorPublishingHouseEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

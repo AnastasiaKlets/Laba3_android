@@ -78,7 +78,7 @@ public class MainActivity extends MainView {
                         }
                     });
             builder.create().show();
-            return false;
+            return true;
         });
         authorsListView.setOnItemClickListener((parent, item, index, id) -> {
             presenter.onDetails(index);

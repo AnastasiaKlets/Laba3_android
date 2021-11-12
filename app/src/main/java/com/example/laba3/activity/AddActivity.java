@@ -2,6 +2,8 @@ package com.example.laba3.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,10 +21,11 @@ public class AddActivity extends AddView {
     private EditText authorPriceEditText;
     private EditText authorNumberOfPagesEditText;
     private EditText authorYearOfPublishingEditText;
-    private EditText authorPublishingHouseEditText;
+    private AutoCompleteTextView authorPublishingHouseEditText;
     private Button saveButton;
 
     private AddActivityPresenter presenter;
+    private String[] hints = {"Альпина", "АСТ", "Наследие", "МуракамиМания", "Альтернатива"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,8 @@ public class AddActivity extends AddView {
         authorYearOfPublishingEditText = findViewById(R.id.authorYearOfPublishingEditText);
         authorPublishingHouseEditText = findViewById(R.id.authorPublishingHouseEditText);
         saveButton = findViewById(R.id.saveButton);
+        ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, hints);
+        authorPublishingHouseEditText.setAdapter(autocompleteAdapter);
     }
 
     public void onSave(View v) {
