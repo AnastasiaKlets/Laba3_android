@@ -2,6 +2,7 @@ package com.example.laba3.activity;
 
 
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.laba3.view.MainView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class MainActivity extends MainView {
@@ -39,14 +41,22 @@ public class MainActivity extends MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       /* ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(ProgressBar.VISIBLE);
-        // запускаем длительную операцию
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Загрузка данных...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.show();
 
-        progressBar.setVisibility(ProgressBar.INVISIBLE);*/
         presenter = new MainActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
         initViews();
         presenter.init();
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        progressDialog.setProgress(100);
+
 
     }
 
