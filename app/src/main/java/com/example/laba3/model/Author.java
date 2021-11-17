@@ -78,13 +78,16 @@ public class Author implements Serializable {
 
     @Override
     public String toString() {
-        return "Author" +
-                ", Название книги: '" + name + '\'' +
-                ", Автор(ы): '" + book + '\'' +
+        return  "Название книги: '" + book + '\'' +
+                ", Автор(ы): '" + name + '\'' +
                 ", Издательство: '" + publishingHouse + '\'' +
                 ", Год издания: " + yearOfPublishing +
                 ", Количество страниц: " + numberOfPages +
                 ", Цена: " + price +
                 ", Переплет: '" + binding;
+    }
+    public String toStringNam() {
+        return  "Название книги: '" + book + '\n' +
+                "Автор(ы): '" + name;
     }
 }

@@ -97,7 +97,7 @@ public class MainActivity extends MainView {
 
     @Override
     public void showAuthorList(List<Author> authorList) {
-        final List<String> list = authorList.stream().map(Author::toString).collect(Collectors.toList());
+        final List<String> list = authorList.stream().map(Author::toStringNam).collect(Collectors.toList());
         adapter.clear();
         adapter.addAll(list);
     }
