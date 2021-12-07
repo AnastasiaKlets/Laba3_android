@@ -16,6 +16,7 @@ import com.example.laba3.fragments.BookInfoFragment;
 import com.example.laba3.R;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.MainActivityPresenter;
+import com.example.laba3.repository.DatabaseRepository;
 import com.example.laba3.repository.FileRepository;
 import com.example.laba3.view.MainView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -41,13 +42,9 @@ public class MainActivity extends MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Загрузка данных...");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setProgress(0);
-        progressDialog.show();
 
-        presenter = new MainActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
+
+        presenter = new MainActivityPresenter(this, new DatabaseRepository(getApplicationContext(), "data.sqlite3"));
         initViews();
         presenter.init();
         try {
@@ -55,9 +52,18 @@ public class MainActivity extends MainView {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Загрузка данных...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.show();
         progressDialog.setProgress(100);
-
-
     }
 
     private void initViews() {
@@ -72,6 +78,7 @@ public class MainActivity extends MainView {
                     .setItems(new String[]{"Удалить", "Редактировать", "Смена темы"}, (v, action) -> {
                         switch (action) {
                             case 0:
+
                                 presenter.onDeleteAuthor(index);
                                 break;
                             case 1:

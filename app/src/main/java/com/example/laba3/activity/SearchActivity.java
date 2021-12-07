@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.example.laba3.R;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.SearchActivityPresenter;
+import com.example.laba3.repository.DatabaseRepository;
 import com.example.laba3.repository.FileRepository;
 import com.example.laba3.view.SearchView;
 
@@ -27,7 +28,7 @@ public class SearchActivity extends SearchView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        presenter = new SearchActivityPresenter(this, FileRepository.getInstance(getFilesDir()));
+        presenter = new SearchActivityPresenter(this, new DatabaseRepository(getApplicationContext(), "data.sqlite3"));
 
         ((SwitchCompat)findViewById(R.id.switch2)).setOnCheckedChangeListener((buttonView, isChecked) -> presenter.toggleQuerySwitch());
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.example.laba3.R;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.AddActivityPresenter;
+import com.example.laba3.repository.DatabaseRepository;
 import com.example.laba3.repository.FileRepository;
 import com.example.laba3.view.AddView;
 
@@ -33,7 +34,7 @@ public class AddActivity extends AddView {
         setContentView(R.layout.activity_add);
         initViews();
         Author author = (Author) getIntent().getSerializableExtra("author");
-        presenter = new AddActivityPresenter(author, FileRepository.getInstance(getFilesDir()), this);
+        presenter = new AddActivityPresenter(author, new DatabaseRepository(getApplicationContext(), "data.sqlite3"), this);
         if(author != null) {
             authorNameEditText.setText(author.getName());
             authorBookEditText.setText(author.getBook());

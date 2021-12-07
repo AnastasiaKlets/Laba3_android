@@ -42,7 +42,8 @@ public class MainActivityPresenter {
     }
 
     public void onDeleteAuthor(int index) {
-        repository.deleteAuthor(index);
+        Author author = repository.getAuthorList().get(index);
+        repository.deleteAuthor(author.getId());
         onRefreshButtonClick();
     }
 

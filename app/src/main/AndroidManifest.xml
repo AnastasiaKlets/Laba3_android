@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Laba3">
+        <service
+            android:name=".service.DataLoadService"
+            android:enabled="true"
+            android:exported="false"></service>
+
         <activity
             android:name=".activity.SearchActivity"
             android:exported="false" />
