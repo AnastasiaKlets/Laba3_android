@@ -17,6 +17,7 @@ import com.example.laba3.R;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.MainActivityPresenter;
 import com.example.laba3.repository.FileRepository;
+import com.example.laba3.utils.OnSwipeTouchListener;
 import com.example.laba3.view.MainView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -56,8 +57,23 @@ public class MainActivity extends MainView {
             e.printStackTrace();
         }
         progressDialog.setProgress(100);
+    }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        authorsListView.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                if (detailsFragment != null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                            .remove(detailsFragment).commit();
+                    findViewById(R.id.fragmentView).setVisibility(View.INVISIBLE);
+                    detailsFragment = null;
+                }
+            }
+        });
     }
 
     private void initViews() {
