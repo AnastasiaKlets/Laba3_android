@@ -43,4 +43,9 @@ public class MockRepository implements AuthorRepository {
     public List<Author> executeSearchQuery(String query, String field) {
         return new ArrayList<>();
     }
+
+    @Override
+    public void setOnDataPreparedListener(DataPreparedInRepository listener) {
+
+    }
 }

@@ -1,7 +1,6 @@
 package com.example.laba3.activity;
 
 
-
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,12 +11,11 @@ import android.widget.ListView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.laba3.fragments.BookInfoFragment;
 import com.example.laba3.R;
+import com.example.laba3.fragments.BookInfoFragment;
 import com.example.laba3.model.Author;
 import com.example.laba3.presenter.MainActivityPresenter;
 import com.example.laba3.repository.DatabaseRepository;
-import com.example.laba3.repository.FileRepository;
 import com.example.laba3.view.MainView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,31 +25,22 @@ import java.util.stream.Collectors;
 
 public class MainActivity extends MainView {
 
+    MainActivityPresenter presenter;
     private FloatingActionButton addAuthorButton;
     private ListView authorsListView;
     private ArrayAdapter<String> adapter;
     private Fragment detailsFragment;
     private boolean backFlag;
 
-    MainActivityPresenter presenter;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-        presenter = new MainActivityPresenter(this, new DatabaseRepository(getApplicationContext(), "data.sqlite3"));
+        presenter = new MainActivityPresenter(this,
+                new DatabaseRepository(getApplicationContext(),
+                        "data.sqlite3"));
         initViews();
         presenter.init();
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
     }
 
@@ -63,7 +52,18 @@ public class MainActivity extends MainView {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.setProgress(0);
         progressDialog.show();
-        progressDialog.setProgress(100);
+        Thread thread = new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(5);
+                this.runOnUiThread(() -> progressDialog.setProgress(100));
+                TimeUnit.MILLISECONDS.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            this.runOnUiThread(progressDialog::hide);
+        });
+        thread.start();
+
     }
 
     private void initViews() {
@@ -78,17 +78,15 @@ public class MainActivity extends MainView {
                     .setItems(new String[]{"Удалить", "Редактировать", "Смена темы"}, (v, action) -> {
                         switch (action) {
                             case 0:
-
                                 presenter.onDeleteAuthor(index);
                                 break;
                             case 1:
                                 presenter.onEditAuthor(index);
                                 break;
                             case 2:
-                                if(!backFlag){
+                                if (!backFlag) {
                                     findViewById(R.id.authorsListView).setBackgroundColor(Color.CYAN);
-                                }
-                                else
+                                } else
                                     findViewById(R.id.authorsListView).setBackgroundColor(Color.WHITE);
                                 backFlag = !backFlag;
                                 break;
@@ -134,9 +132,9 @@ public class MainActivity extends MainView {
 
     @Override
     public void onBackPressed() {
-        if(detailsFragment == null)
+        if (detailsFragment == null)
             super.onBackPressed();
-        else{
+        else {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .remove(detailsFragment).commit();

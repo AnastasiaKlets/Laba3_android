@@ -48,7 +48,7 @@ public class FileRepository implements AuthorRepository{
     private int findId(List<Author> authorList) {
         for (int i = 1; i < authorList.size()+1; i++) {
             int finalI = i;
-            if(!authorList.stream().anyMatch(x -> x.getId() == finalI)) {
+            if(authorList.stream().noneMatch(x -> x.getId() == finalI)) {
                 return i;
             }
         }
@@ -86,5 +86,10 @@ public class FileRepository implements AuthorRepository{
             }
             return false;
         }).collect(Collectors.toList());
+    }
+
+    @Override
+    public void setOnDataPreparedListener(DataPreparedInRepository listener) {
+
     }
 }

@@ -21,8 +21,7 @@ public class MainActivityPresenter {
     }
 
     public void init() {
-        List<Author> authorList = repository.getAuthorList();
-        view.showAuthorList(authorList);
+        repository.setOnDataPreparedListener(this::requestData);
     }
 
     public void onAddButtonClick() {
@@ -56,5 +55,8 @@ public class MainActivityPresenter {
         view.startActivity(new Intent(view, SearchActivity.class));
     }
 
-
+    private void requestData(){
+        List<Author> authorList = repository.getAuthorList();
+        view.showAuthorList(authorList);
+    }
 }
