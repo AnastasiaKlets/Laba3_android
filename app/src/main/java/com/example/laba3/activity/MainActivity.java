@@ -3,9 +3,12 @@ package com.example.laba3.activity;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -32,10 +35,31 @@ public class MainActivity extends MainView {
     private Fragment detailsFragment;
     private boolean backFlag;
 
+    ImageView img;
+    Button start;
+    Button stop;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        img =findViewById(R.id.catImg);
+        start = findViewById(R.id.startButton);
+        stop = findViewById(R.id.stopButton);
+        img.setBackgroundResource(R.drawable.cat_animation);
+        AnimationDrawable frameAnimation = (AnimationDrawable)img.getBackground();
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                frameAnimation.start();
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                frameAnimation.stop();
+            }
+        });
         presenter = new MainActivityPresenter(this,
                 new DatabaseRepository(getApplicationContext(),
                         "data.sqlite3"));
