@@ -48,18 +48,7 @@ public class MainActivity extends MainView {
         stop = findViewById(R.id.stopButton);
         img.setBackgroundResource(R.drawable.cat_animation);
         AnimationDrawable frameAnimation = (AnimationDrawable)img.getBackground();
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                frameAnimation.start();
-            }
-        });
-        stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                frameAnimation.stop();
-            }
-        });
+        frameAnimation.start();
         presenter = new MainActivityPresenter(this,
                 new DatabaseRepository(getApplicationContext(),
                         "data.sqlite3"));
